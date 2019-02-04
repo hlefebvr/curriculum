@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11.5pt]{article}
 
 % Dependencies
 \usepackage[left=1cm, right=1cm, top=.5cm, bottom=.5cm]{geometry}
@@ -101,7 +101,11 @@
                 \textbf{Henri Lefebvre}
             \end{Huge}
             22 ans\\
-            Cherche stage en optimisation/apprentissage automatique
+            Recherche :
+            \begin{itemize}
+              \item Thèse CIFRE en optimisation / recherche opérationnelle
+              \item Emploi ingénieur
+            \end{itemize}
             \end{minipage}
             \begin{minipage}{\cvAddressWidth}
                 \begin{flushright}
@@ -117,20 +121,38 @@
     \begin{minipage}[t]{\textwidth}
         \vspace{\cvVspacePhotoTitle}
         \begin{minipage}[t]{\cvLeftWidth}
+            \cvSection{Expériences professionnelles}
+            \cvItem{Février 2019 - Juillet 2019 (6 mois)}{Stage Recherche - Optimisation robuste}{INRIA - RealOpt}{Bordeaux}{
+                \begin{itemize}
+                    \item Problème d'ordonnancement avec recours
+                    \item $1|r_j|\sum w_jU_j$ robuste
+                \end{itemize}
+                \textit{Dantzig-Wolfe decomposition, MILP, C++}
+            }
+            \cvItem{Septembre 2018 - Aout 2018 (12 mois)}{Développeur backend sous Amazon Web Services}{MoneyCup}{Paris}{
+                \begin{itemize}
+                    \item Création du backend de l'application mobile
+                    \item Implémentation d'une solution de e-signature
+                    \item Développement du moteur d'investissement
+                    \item Gestion d'événements asynchrones/parrallèles
+                \end{itemize}
+                \textit{Finance, AWS, NoSQL, DynamoDB, node.js}
+            }
+            \cvItem{Février 2018 (1 mois)}{Stagiaire - assistant contrôle qualité}{Valeo}{Étaples}{}
             \cvSection{Projets et réalisations}
+            \cvItem{Décembre 2018 - Mars 2019 (4 mois)}{Heuristique pour Tournée de Vehicules Electriques}{Università degli studi di Genova}{Gènes}{
+                \begin{itemize}
+                    \item \textit{Simulated Annealing} (SA)
+                    \item \textit{Variable Neighbourhood Search} (VNS)
+                \end{itemize}
+                \textit{C++, E-VRP-TW, 2-OPT, capacitaed stations}
+            }
             \cvItem{Février 2018 - Juin 2018 (5 mois)}{Planificateur d'itinéraire multimodal}{Laboratoire Heudiasyc}{Compiègne}{
                 \begin{itemize}
                     \item Exploitation de données \textit{Google Transit Format Specification} (GTFS) pour la génération du graphe
                     \item Algorithme de Dijkstra avec dépendence temporelle
                 \end{itemize}
-                \textit{Dijkstra, time dependent model, graphes}
-            }
-            \cvItem{Juin 2017 (1 mois)}{Optimisation de la charge de wagons}{Université de Technologie de Compiègne}{}{
-                \begin{itemize}
-                    \item Utilisation du solveur XPress MP
-                    \item Modélisation linéaire du problème
-                \end{itemize}
-                \textit{Multidimensional knapsack problem, XPress MP}
+                \textit{Dijkstra, time dependent model, python}
             }
             \cvItem{Avril 2017 - Juin 2017 (3 mois)}{Intelligence artificielle pour jeu de plateau}{Université de Technologie de Compiègne}{}{
                 \begin{itemize}
@@ -139,24 +161,11 @@
                 \end{itemize}
                 \textit{Prolog, intelligence artificielle symbolique}
             }
-            \cvSection{Expériences professionnelles}
-            \cvItem{Septembre 2018 - Aout 2018 (12 mois)}{Développeur backend sous AWS}{MoneyCup}{Paris}{
-                \begin{itemize}
-                    \item Développement du moteur d'investissement
-                    \item Création du backend de l'application mobile
-                    \item Implémentation d'une solution de e-signature
-                    \item Gestion d'événements asynchrones/parrallèles
-                \end{itemize}
-                \textit{Finance, AWS, NoSQL, DynamoDB, node.js}
-            }
-            \cvItem{Février 2018 (1 mois)}{Stagiaire - assistant contrôle qualité}{Valeo}{Étaples}{}
         \end{minipage}
         \hspace{\cvHspaceLeftRight}
         \begin{minipage}[t]{\cvRightWidth}
             \cvSection{Diplômes}
-            \cvItem{2018 - 2019 (12 mois)}{\textit{Laurea Magistrale en Informatica}}{Università degli studi di Genova}{Italie}{}
-            \cvItem{2018 - 2019 (12 mois)}{Master \textit{Apprentissage et optimisation}}{Université de Technologie de Compiègne}{}{}
-            \cvItem{2014 - 2019 (5 ans)}{Ingénieur Génie Informatique}{Université de Technologie de Compiègne}{}{
+            \cvItem{2014 - 2019 (5 ans)}{Diplôme d'Ingénieur - Génie Informatique}{Université de Technologie de Compiègne}{}{
                 \begin{itemize}
                     \item Filière \textit{Aide à la Décision en logistique}
                     \item Label \textit{Modélisation Mathématiques}
@@ -164,13 +173,24 @@
                     \item 1 Semestre à l'\textcolor{red!60!black}{Université de Shanghai}, Chine
                 \end{itemize}
             }
+            \cvItem{2018 - 2019 (12 mois)}{Master - \textit{Laurea Magistrale en Informatica}}{Università degli studi di Genova}{Italie}{
+                \begin{itemize}
+                    \item Filière \textit{Logistics and production}
+                \end{itemize}
+            }
+            \cvItem{2018 - 2019 (12 mois)}{Master - Ingénieurie des Systèmes Complexes}{Université de Technologie de Compiègne}{}{
+                \begin{itemize}
+                    \item Filière \textit{Apprentisage et Optimisation des Systèmes}
+                \end{itemize}
+            }
             \cvSection{Compétences}
             \textbf{Sciences}
                 \vspace{10pt}
                 \begin{itemize}
-                    \item Optimisation linéaire et non linéaire
-                    \item Apprentisage automatique et statistiques
+                    \item Optimisation {\small (\emph{LP}, \emph{MILP})}
+                    \item Méthodes heuristiques et metaheuristiques
                     \item Modélisation mathématique
+                    \item Apprentisage automatique et statistiques
                     \item Analyse et calcul numérique
                 \end{itemize}
                 \vspace{10pt}
@@ -179,10 +199,13 @@
                 \begin{itemize}
                     \item C++
                     \item Python 3
+                    \item IBM Cplex
+                    \item Lingo
                     \item\texttt{GNU R}
                     \item SciLab
                     \item\LaTeX
                     \item Linux
+                    \item Amazon Web Services
                 \end{itemize}
             \end{multicols}
             \textbf{Langues}
@@ -195,6 +218,7 @@
             \textbf{Intérêts}
             \begin{multicols}{2}
                 \begin{itemize}
+                    \item Environnement
                     \item Sciences cognitives
                     \item Vulgarisation
                     \item Poésie française

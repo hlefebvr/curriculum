@@ -1,0 +1,87 @@
+% Dependencies
+\usepackage[left=1cm, right=1cm, top=.5cm, bottom=.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{calc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{amssymb}
+\usepackage{ifmtarg}
+\usepackage{multicol}
+
+% Mettrics
+\setlength\parindent{0pt}
+\setlength\fboxsep{0pt}
+
+\newlength\cvPhotoWidth
+\setlength\cvPhotoWidth{3cm}
+
+\newlength\cvHspacePhotoTitle
+\setlength\cvHspacePhotoTitle{.5cm}
+
+\newlength\cvVspacePhotoTitle
+\setlength\cvVspacePhotoTitle{.5cm}
+
+\newlength\cvLeftWidth
+\setlength\cvLeftWidth{0.5\textwidth}
+
+\newlength\cvHspaceLeftRight
+\setlength\cvHspaceLeftRight{.5cm}
+
+\newlength\cvNameWidth
+\setlength\cvNameWidth{10.5cm}
+
+\newlength\cvAddressWidth
+\setlength\cvAddressWidth{\textwidth-\cvPhotoWidth-\cvNameWidth-1cm}
+
+\newlength\cvRightWidth
+\setlength\cvRightWidth{\textwidth-\cvLeftWidth-\cvHspaceLeftRight-0.5cm}
+
+\definecolor{lightgray}{HTML}{efefef}
+
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=15pt}
+\renewcommand{\labelitemi}{{\tiny$\blacksquare$}}
+
+\pagenumbering{gobble}
+
+\newcommand\cvBullet{ $\blacksquare$ }
+
+\newcommand\cvSection[1]{
+    \begin{mdframed}[
+        linewidth=.5pt,
+        topline=false,
+        leftline=false,
+        rightline=false,
+        linecolor=red!60!black,
+        innermargin=0,
+        outermargin=0
+    ]
+        \begin{Large}
+            \textbf{#1}
+        \end{Large}
+    \end{mdframed}
+}
+
+\newcommand\cvItem[5]{
+    \def\cvPlace{#4}
+    \begin{mdframed}[
+        linewidth=1.5pt,
+        topline=false,
+        bottomline=false,
+        rightline=false,
+        linecolor=red!60!black,
+        innermargin=0,
+        outermargin=0,
+        backgroundcolor=lightgray
+    ]
+        \textit{#1}\\
+        \begin{normalsize}
+            \textbf{#2}
+        \end{normalsize}\\
+        \textcolor{red!60!black}{#3}
+        \ifx\cvPlace\empty\else - #4 \fi
+    \end{mdframed}
+    #5
+}

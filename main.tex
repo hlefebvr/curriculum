@@ -1,92 +1,9 @@
 \documentclass[11.5pt]{article}
 
-% Dependencies
-\usepackage[left=1cm, right=1cm, top=.5cm, bottom=.5cm]{geometry}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{calc}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{enumitem}
-\usepackage{mdframed}
-\usepackage{amssymb}
-\usepackage{ifmtarg}
-\usepackage{multicol}
+\usepackage{curriculum}
 
-% Mettrics
-\setlength\parindent{0pt}
-\setlength\fboxsep{0pt}
-
-\newlength\cvPhotoWidth
-\setlength\cvPhotoWidth{3cm}
-
-\newlength\cvHspacePhotoTitle
-\setlength\cvHspacePhotoTitle{.5cm}
-
-\newlength\cvVspacePhotoTitle
-\setlength\cvVspacePhotoTitle{.5cm}
-
-\newlength\cvLeftWidth
-\setlength\cvLeftWidth{0.5\textwidth}
-
-\newlength\cvHspaceLeftRight
-\setlength\cvHspaceLeftRight{.5cm}
-
-\newlength\cvNameWidth
-\setlength\cvNameWidth{10.5cm}
-
-\newlength\cvAddressWidth
-\setlength\cvAddressWidth{\textwidth-\cvPhotoWidth-\cvNameWidth-1cm}
-
-\newlength\cvRightWidth
-\setlength\cvRightWidth{\textwidth-\cvLeftWidth-\cvHspaceLeftRight-0.5cm}
-
-\definecolor{lightgray}{HTML}{efefef}
-
-\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=15pt}
-\renewcommand{\labelitemi}{{\tiny$\blacksquare$}}
-
-\pagenumbering{gobble}
-
-\newcommand\cvBullet{ $\blacksquare$ }
-
-\newcommand\cvSection[1]{
-    \begin{mdframed}[
-        linewidth=.5pt,
-        topline=false,
-        leftline=false,
-        rightline=false,
-        linecolor=red!60!black,
-        innermargin=0,
-        outermargin=0
-    ]
-        \begin{Large}
-            \textbf{#1}
-        \end{Large}
-    \end{mdframed}
-}
-
-\newcommand\cvItem[5]{
-    \def\cvPlace{#4}
-    \begin{mdframed}[
-        linewidth=1.5pt,
-        topline=false,
-        bottomline=false,
-        rightline=false,
-        linecolor=red!60!black,
-        innermargin=0,
-        outermargin=0,
-        backgroundcolor=lightgray
-    ]
-        \textit{#1}\\
-        \begin{normalsize}
-            \textbf{#2}
-        \end{normalsize}\\
-        \textcolor{red!60!black}{#3}
-        \ifx\cvPlace\empty\else - #4 \fi
-    \end{mdframed}
-    #5
-}
+\newcommand\en[1]{#1}
+\newcommand\fr[1]{}
 
 \begin{document}
 
@@ -98,22 +15,24 @@
             \begin{minipage}[t]{\textwidth-\cvPhotoWidth-\cvHspacePhotoTitle}
             \begin{minipage}{\cvNameWidth}
             \begin{Huge}
+                \vspace{.5cm}
                 \textbf{Henri Lefebvre}
             \end{Huge}
-            22 ans\\
-            Recherche :
-            \begin{itemize}
-              \item Thèse CIFRE en optimisation / recherche opérationnelle
-              \item Emploi ingénieur
-            \end{itemize}
+            23 \en{years old}\fr{ans}
+            \center{
+                \en{ Applies for PhD position : \underline{Benders Decomposition for Convex Mixed-Integer Nonlinear Optimisation} }
+                \fr{ Candidat au sujet de thèse : \underline{Reformulation et décomposition pour
+                l’optimisation robuste avec recours entier} }
+            }
             \end{minipage}
             \begin{minipage}{\cvAddressWidth}
                 \begin{flushright}
                     33 Rue des Cronquelets, \\
                     Saint-Aubin, 62170 (FR)\\
                     \underline{henri.lefebvre@yahoo.com}\\
-                    07 78 34 29 49\\
-                    Permis B
+                    (+33) 07 78 34 29 49\\
+                    \fr{Permis B}
+                    \en{Driving licence}
                 \end{flushright}
             \end{minipage}
         \end{minipage}
@@ -121,78 +40,148 @@
     \begin{minipage}[t]{\textwidth}
         \vspace{\cvVspacePhotoTitle}
         \begin{minipage}[t]{\cvLeftWidth}
-            \cvSection{Expériences professionnelles}
-            \cvItem{Février 2019 - Juillet 2019 (6 mois)}{Optimisation robuste (Stagiaire)}{INRIA - RealOpt}{Bordeaux}{
-                \begin{itemize}
-                    \item Problème d'ordonnancement avec recours
-                    \item $1|r_j|\sum w_jU_j$ robuste
-                    \item Programmation dynamique
-                \end{itemize}
-                \textit{Dantzig-Wolfe reformulation, MILP, C++}
+            \cvSection{
+                \fr{Expériences professionnelles}
+                \en{Work experience}
             }
-            \cvItem{Septembre 2018 - Aout 2018 (12 mois)}{Développeur backend sous Amazon Web Services}{Wide Asset Management}{Paris}{
+            \cvItem{\fr{Février 2019 - Juillet 2019 (6 mois)}\en{February 2019 - July 2019 (6 months)}}{\fr{Optimisation robuste (Stagiaire)}\en{Research intern in robust linear optimization}}{INRIA - RealOpt}{Bordeaux (France)}{
                 \begin{itemize}
-                    \item Création du backend de l'application mobile
-                    \item Implémentation d'une solution de e-signature
-                    \item Développement du moteur d'investissement
-                    \item Gestion d'événements asynchrones/parrallèles
+                    \fr{
+                        \item $1|r_j|\sum w_jU_j$ robuste avec recours entiers
+                        \item Problèmes de types $\min_{x\in\mathcal X}\max_{\xi\in\Xi}\min_{y\in\mathcal Y(x)}f(x,\xi,y)$
+                        \item Branch-and-price, reformulation Dantzig-Wolfe
+                        \item Analyse polyhédrale
+                        \item Comparaison avec la $K$-adaptabilité
+                    }
+                    \en{
+                        \item Robust $1|r_j|\sum w_jU_j$ with integer recourses
+                        \item $\min_{x\in\mathcal X}\max_{\xi\in\Xi}\min_{y\in\mathcal Y(x)}f(x,\xi,y)$ problems
+                        \item Branch-and-price, Dantzig-Wolfe reformulation
+                        \item Polyhedral analysis
+                        \item $K$-adaptability approach comparison
+                    }
+                \end{itemize}
+                \textit{C++, IBM Cplex}
+            }
+            \cvItem{\fr{Septembre 2018 - Aout 2018 (12 mois)}\en{September 2018 - August 2018 (12 months)}}{\fr{Développeur backend sous Amazon Web Services}\en{Backend developper on Amazon Web Services}}{Wide Asset Management}{Paris (France)}{
+                \begin{itemize}
+                    \fr{
+                        \item Création du backend de l'application mobile
+                        \item Implémentation d'une solution de e-signature
+                        \item Développement du moteur d'investissement
+                        \item Gestion d'événements asynchrones/parrallèles
+                    }
+                    \en{
+                        \item Mobile application backend development
+                        \item E-signature solution implementation
+                        \item Investment engine development
+                        \item Parallel/asynchronous events management
+                    }
                 \end{itemize}
                 \textit{Finance, AWS, NoSQL, DynamoDB, node.js}
             }
-            \cvItem{Février 2018 (1 mois)}{Stagiaire - assistant contrôle qualité}{Valeo}{Étaples}{}
-            \cvSection{Projets et réalisations}
-            \cvItem{Décembre 2018 - Mars 2019 (4 mois)}{Heuristique pour Tournée de Vehicules Electriques}{Università degli studi di Genova}{Gènes}{
+            % \cvItem{Février 2018 (1 mois)}{Stagiaire - assistant contrôle qualité}{Valeo}{Étaples}{}
+            \cvSection{\fr{Projets et réalisations}\en{Projects and achievements}}
+            \cvItem{\fr{Décembre 2018 - Mars 2019 (4 mois)}\en{December 2018 - March 2019 (4 months)}}{\fr{Heuristique pour Tournée de Vehicules Electriques}\en{Electrical Vehicle Routing Problem heuristic}}{Università degli studi di Genova}{\fr{Gènes (Italie)}\en{Genova (Italy)}}{
                 \begin{itemize}
+                    \fr{
+                        \item Problème de tournées de véhicules avec stations de rechargements saturées et fenêtres de temps pour les livraisons
+                    }
+                    \en{
+                        \item Vehicle Routing Problem with capacitated recharging stations and time windows for deliveries
+                    }
                     \item \textit{Simulated Annealing} (SA)
                     \item \textit{Variable Neighbourhood Search} (VNS)
                 \end{itemize}
-                \textit{C++, E-VRP-TW, 2-OPT, capacitaed stations}
+                \textit{C++, E-VRP-TW, 2-OPT moves}
             }
-            \cvItem{Février 2018 - Juin 2018 (5 mois)}{Planificateur d'itinéraire multimodal}{Laboratoire Heudiasyc}{Compiègne}{
+            \cvItem{\fr{Février 2018 - Juin 2018 (5 mois)}\en{February 2018 - June 2018 (5 months)}}{\fr{Planificateur d'itinéraire multimodal}\en{Multimodal Itinerary Planning}}{\fr{Laboratoire }Heudiasyc\en{ laboratory}}{Compiègne (France)}{
                 \begin{itemize}
-                    \item Exploitation de données \textit{Google Transit Format Specification} (GTFS) pour la génération du graphe
-                    \item Algorithme de Dijkstra avec dépendence temporelle
+                    \fr{
+                        \item Algorithme de Dijkstra avec dépendence temporelle
+                        \item Exploitation de données \textit{Google Transit Format Specification} (GTFS) pour la génération du graphe
+                    }
+                    \en{
+                        \item Dijkstra's algorithm with time dependencies
+                        \item Real \textit{Google Transit Format Specification} (GTFS) instances for graph generation (Paris, Rome, ...)
+                    }
                 \end{itemize}
-                \textit{Dijkstra, time dependent model, python}
+                \textit{Python, SQLite, time expanded/dependent model}
             }
-            \cvItem{Avril 2017 - Juin 2017 (3 mois)}{Intelligence artificielle pour jeu de plateau}{Université de Technologie de Compiègne}{}{
+            \cvItem{\fr{Avril 2017 - Juin 2017 (3 mois)}\en{April 2017 - June 2017 (3 months)}}{\fr{Intelligence artificielle pour jeu de plateau}\en{Board game artifical intelligence}}{\fr{Université de Technologie}\en{University of Technology}}{Compiègne (France)}{
                 \begin{itemize}
-                    \item Programmation logique pour la création de l'IA
-                    \item Joueur autonome pour le jeu Arimaa
+                    \fr{
+                        \item Joueur autonome pour le jeu Arimaa
+                        \item Programmation logique pour la création de l'IA
+                    }
+                    \en{
+                        \item Autonomous player for Arimaa board game
+                        \item Logic programming for adversary's strategy
+                    }
                 \end{itemize}
-                \textit{Prolog, intelligence artificielle symbolique}
+                \textit{Prolog, \fr{intelligence artificielle symbolique}\en{symbolic artifical intelligence}}
             }
         \end{minipage}
         \hspace{\cvHspaceLeftRight}
         \begin{minipage}[t]{\cvRightWidth}
-            \cvSection{Diplômes}
-            \cvItem{2014 - 2019 (5 ans)}{Diplôme d'Ingénieur - Génie Informatique}{Université de Technologie de Compiègne}{}{
+            \cvSection{\fr{Diplômes}\en{Education}}
+            \cvItem{2014 - 2019 (5 \fr{ans}\en{years})}{\fr{Diplôme d'Ingénieur - Génie Informatique}\en{Engineer's degree in Computer Science}}{\fr{Université de Technologie}\en{University of Technology}}{Compiègne (France)}{
                 \begin{itemize}
-                    \item Filière \textit{Aide à la Décision en logistique}
-                    \item Label \textit{Modélisation Mathématiques}
-                    \item Mineur \textit{Philosophie, Technologie et cognition}
-                    \item 1 Semestre à l'\textcolor{red!60!black}{Université de Shanghai}, Chine
+                    \fr{
+                        \item Filière \textit{Aide à la Décision en logistique}
+                        \item Mineur \textit{Philosophie, Technologie et cognition}
+                        \item 1 Semestre à l'\textcolor{red!60!black}{Université de Shanghai} (Chine)
+                    }
+                    \en{
+                        \item Major : \textit{Decision support applied to logistics}
+                        \item Minor : \textit{Philosophy, Technology and cognition}
+                        \item Study semester in \textcolor{red!60!black}{Shanghai University} (China)
+                    }
                 \end{itemize}
             }
-            \cvItem{2018 - 2019 (12 mois)}{Master - \textit{Laurea Magistrale en Informatica}}{Università degli studi di Genova}{Italie}{
+            \cvItem{2018 - 2019 (12 \fr{mois}\en{months})}{\fr{Master -} \textit{Laurea Magistrale en Informatica}}{Università degli studi di Genova}{\fr{Italie}\en{Italy}}{
                 \begin{itemize}
-                    \item Filière \textit{Logistics and production}
+                    \fr{
+                        \item Filière \textit{Logistics and production}
+                        \item Double diplôme
+                    }
+                    \en{
+                        \item Major : \textit{Logistics and production}
+                    }
                 \end{itemize}
             }
-            \cvItem{2018 - 2019 (12 mois)}{Master - Ingénieurie des Systèmes Complexes}{Université de Technologie de Compiègne}{}{
+            \cvItem{2018 - 2019 (12 \fr{mois}\en{months})}{\fr{Master - Ingénieurie des Systèmes Complexes}\en{Master degree - Complex systems Engineering}}{\fr{Université de Technologie}\en{University of Technology}}{Compiègne (France)}{
                 \begin{itemize}
-                    \item Filière \textit{Apprentisage et Optimisation des Systèmes}
+                    \fr{
+                        \item Filière \textit{Apprentisage et Optimisation des Systèmes}
+                    }
+                    \en{
+                        \item Major : \textit{Optimization and learning of systems}
+                    }
                 \end{itemize}
             }
-            \cvSection{Compétences}
+            \cvSection{\fr{Compétences}\en{Skills}}
             \textbf{Sciences}
                 \vspace{10pt}
                 \begin{itemize}
-                    \item Optimisation {\small (\emph{LP}, \emph{MILP})}
-                    \item Méthodes heuristiques et metaheuristiques
-                    \item Modélisation mathématique
-                    \item Apprentisage automatique et statistiques
-                    \item Analyse et calcul numérique
+                    \fr{
+                        \item Optimisation {\small (\emph{LP}, \emph{MILP})}
+                        \item Méthodes heuristiques et metaheuristiques
+                        \item Méthodes de décompositions
+                        \item Modélisation mathématique
+                        \item Apprentisage automatique et statistiques
+                        \item Analyse et calcul numérique
+                    }
+                    \en{
+                        \item Linear and non linear optimization {\small (\emph{LP}, \emph{MILP}, \emph{KKT})}
+                        \item Optimization under uncertainty (robust, stochastic)
+                        \item Decomposition methods (Dantzig-Wolfe, Benders)
+                        \item Heuristics and metaheuristic methods
+                        \item Mathematical modeling
+                        \item Exact approaches
+                        \item Machine learning and statistics
+                        \item Numerical analysis
+                    }
                 \end{itemize}
                 \vspace{10pt}
             \textbf{Programmation}
@@ -206,23 +195,33 @@
                     \item SciLab
                     \item\LaTeX
                     \item Linux
+                    \item Git
                     \item Amazon Web Services
                 \end{itemize}
             \end{multicols}
             \textbf{Langues}
             \begin{multicols}{2}
                 \begin{itemize}
-                    \item Anglais {\footnotesize(TOEIC 965)}
+                    \item \fr{Anglais}\en{English} {\footnotesize(TOEIC 965)}
                     \item Français
+                    \item Spanish {\footnotesize(basic)}
                 \end{itemize}
             \end{multicols}
-            \textbf{Intérêts}
+            \textbf{\fr{Intérêts}\en{Interests}}
             \begin{multicols}{2}
                 \begin{itemize}
-                    \item Environnement
-                    \item Sciences cognitives
-                    \item Vulgarisation
-                    \item Poésie française
+                    \fr{
+                        \item Environnement
+                        \item Sciences cognitives
+                        \item Vulgarisation
+                        \item Poésie française
+                    }
+                    \en{
+                        \item Environment
+                        \item Cognitive sciences
+                        \item Vulgarization
+                        \item French poetry
+                    }
                 \end{itemize}
             \end{multicols}
         \end{minipage}
